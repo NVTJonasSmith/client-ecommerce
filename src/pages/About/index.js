@@ -1,4 +1,3 @@
-import VinhTiengAvatar from "../../images/vinhtieng.jpg";
 function About() {
     const members = [
         { name: "Nguyễn Vinh Tiếng", Id: "51900713", position: "CEO-Founder" },

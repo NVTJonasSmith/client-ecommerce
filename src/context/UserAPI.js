@@ -1,32 +1,31 @@
-import { useState, useEffect } from 'react'
-import { getMethod } from "../utils/fetchData"
-import { TOKEN_NAME } from "../credentials"
+import { useState, useEffect } from "react";
+import { getMethod } from "../utils/fetchData";
+import { TOKEN_NAME } from "../credentials";
 function UserAPI() {
-    const [isLogin, setIsLogin] = useState(false)
-    const [user, setUser] = useState(null)
-    const [isAdmin, setIsAdmin] = useState(false)
-    const [cart, setCart] = useState([])
+    const [isLogin, setIsLogin] = useState(false);
+    const [user, setUser] = useState(null);
+    const [isAdmin, setIsAdmin] = useState(false);
+    const [cart, setCart] = useState([]);
     useEffect(() => {
         const checkUserIsLogin = async () => {
-            const res = await getMethod('get-user')
+            const res = await getMethod("get-user");
             if (res.success) {
-                setIsLogin(true)
-                setUser(res.user)
-                setCart(res.user.cart)
-                if (res.user.role === 'admin') setIsAdmin(true)
+                setIsLogin(true);
+                setUser(res.user);
+                setCart(res.user.cart);
+                if (res.user.role === "admin") setIsAdmin(true);
             } else {
-                alert(res.message)
+                console.log(res.message);
             }
-        }
-        if (localStorage.getItem(TOKEN_NAME))
-            checkUserIsLogin()
-    }, [])
+        };
+        if (localStorage.getItem(TOKEN_NAME)) checkUserIsLogin();
+    }, []);
     return {
         login: [isLogin, setIsLogin],
         admin: [isAdmin, setIsAdmin],
         user: [user, setUser],
-        cart: [cart, setCart]
-    }
+        cart: [cart, setCart],
+    };
 }
 
-export default UserAPI
+export default UserAPI;
