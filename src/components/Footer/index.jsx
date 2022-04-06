@@ -12,7 +12,7 @@ function Footer() {
                         to="/"
                         className="flex items-center justify-center text-4xl font-bold text-blue-700 md:justify-start"
                     >
-                        VTieng Shop
+                        CNPM Shop
                     </Link>
                     <p className="mt-2 text-sm text-gray-500">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -24,7 +24,7 @@ function Footer() {
                 <div className="justify-between w-full mt-4 text-center lg:flex">
                     <div className="w-full px-4 lg:w-1/2 md:w-1/2">
                         <h2 className="mb-2 font-bold tracking-widest text-gray-900">
-                            Links
+                            Navigation
                         </h2>
                         <ul className="mb-8 space-y-2 text-sm list-none">
                             <li>
@@ -43,14 +43,14 @@ function Footer() {
                                     Products
                                 </Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link
                                     to="#"
                                     className="text-gray-600 hover:text-gray-800"
                                 >
                                     Pricing
                                 </Link>
-                            </li>
+                            </li> */}
                             <li>
                                 <Link
                                     to="#"
@@ -68,12 +68,12 @@ function Footer() {
                         <ul className="mb-8 space-y-2 text-sm list-none">
                             <li>
                                 <div className="text-gray-600 hover:text-gray-800">
-                                    Email: vinhtieng123@gmail.com
+                                    Email: cnpm@gmail.com
                                 </div>
                             </li>
                             <li>
                                 <div className="text-gray-600 hover:text-gray-800">
-                                    Phone: (+84)353571047
+                                    Phone: (+84)123456789
                                 </div>
                             </li>
                             <li>
@@ -98,7 +98,7 @@ function Footer() {
             </div>
             <div className="flex justify-center">
                 <p className="text-gray-400 font-semibold text-[14px]">
-                    All rights reserved by Nguyen Vinh Tieng 2021
+                    All rights reserved by (CNPM) - 2022
                 </p>
             </div>
         </footer>

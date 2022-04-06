@@ -2,6 +2,9 @@ import { useState, useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import LayerHidden from "../LayerHidden";
 import { GlobalState } from "../../context/GlobalState";
+import Swal from "sweetalert2";
+import { TOKEN_NAME } from "../../credentials";
+
 function Header() {
     const [toggleMenu, setToggleMenu] = useState(true);
     const state = useContext(GlobalState);
@@ -10,6 +13,22 @@ function Header() {
     const isAdmin = state.UserAPI.admin[0];
     const numberProduct = cart.length;
     const [isLogin] = login;
+    const handleLogout = async (e) => {
+        let result = await Swal.fire({
+            title: "Warning",
+            text: "Are you sure you want to logout",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#999",
+            confirmButtonText: "Yes!",
+        });
+        const { isConfirmed } = result;
+        if (isConfirmed) {
+            localStorage.removeItem(TOKEN_NAME);
+            window.location.reload();
+        }
+    };
     return (
         <header className="flex justify-between mt-4 header">
             {!toggleMenu ? (
@@ -24,7 +43,7 @@ function Header() {
                 <ion-icon size="large" name="menu"></ion-icon>
             </div>
             <div className="cursor-pointer hidden sm:flex items-center">
-                VTieng Shop
+                CNPM Shop
             </div>
             <ul
                 className={`z-20 fixed top-0 bottom-0 left-0 bg-white right-[50%] sm:right-[0%] py-8 sm:py-0 border  sm:justify-start sm:flex-1 sm:ml-10 sm:flex sm:relative sm:bg-transparent sm:border-0 transition-all sm:translate-x-0 ${
@@ -113,22 +132,13 @@ function Header() {
                             )}
                         </Link>
                     </li>
-                    <li className="mx-3 relative">
-                        <a href="#!">
-                            <ion-icon
-                                size="middle"
-                                name="logo-facebook"
-                            ></ion-icon>
-                        </a>
-                        <a href="#!">
-                            <ion-icon
-                                size="middle"
-                                name="logo-instagram"
-                            ></ion-icon>
-                        </a>
-                        <span className="absolute text-[6px] bottom-[-4px] font-semibold left-0 right-0">
-                            Connect
-                        </span>
+                    <li>
+                        <button
+                            onClick={handleLogout}
+                            className="mx-1 rounded-full text-[16px] border-2 border-[#827edd] flex align-middle px-6 py-1 text-[#827edd] hover:bg-[#827edd] hover:text-white transition-all  items-center"
+                        >
+                            Logout <ion-icon name="log-out-outline"></ion-icon>
+                        </button>
                     </li>
                 </ul>
             )}
