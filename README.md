@@ -1,11 +1,33 @@
-# Getting Started with Create React App
+# Ecommerce App (Client) React APP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Technology: 
+React, TaiwindCSS, React Context,...
 
-## Available Scripts
+## Features
+User
+* Login, Register
+* View products
+* Filter products(price, name, category)
+* Add product to cart
+* Change quantity and remove products in cart 
 
-In the project directory, you can run:
+Admin
+* User feature
+* Add product
+* Delete product
 
+
+## Link demo
+* https://nguyenvinhtieng-ecommerce.netlify.app/ 
+
+
+## Admin account
+* username: tieng
+* password: 123123123
+
+
+
+## React README
 ### `npm start`
 
 Runs the app in the development mode.\
